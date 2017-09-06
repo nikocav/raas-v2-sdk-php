@@ -3,8 +3,16 @@
     "type": "library",
     "description": "With this RESTful API you can integrate a global reward or incentive program into your app or platform. If you have any questions or if you'd like to receive your own credentials, please contact us at devsupport@tangocard.com.",
     "keywords": ["Tango Card RaaS v2 API","API","SDK"],
-    "homepage": "https://tangocard.com",
-    "license": "Apache-2.0",
+    "homepage": "https://apimatic.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "APIMatic SDK Generator",
+            "email": "support@apimatic.io",
+            "homepage": "https://apimatic.io",
+            "role": "API Tool"
+        }
+    ],
     "require": {
         "php": ">=5.4.0",
         "ext-curl": "*",

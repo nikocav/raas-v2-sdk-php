@@ -23,19 +23,14 @@ class Configuration
      * RaaS v2 API Platform Name
      * @var string
      */
-    /**
-     * @todo Replace the $platformName with an appropriate value
-     */
     public static $platformName = 'QAPlatform2';
 
     /**
      * RaaS v2 API Platform Key
      * @var string
      */
-    /**
-     * @todo Replace the $platformKey with an appropriate value
-     */
     public static $platformKey = 'apYPfT6HNONpDRUj3CLGWYt7gvIHONpDRUYPfT6Hj';
+
     /**
      * Get the base uri for a given server in the current environment
      * @param  string $server Server name

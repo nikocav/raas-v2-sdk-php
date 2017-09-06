@@ -1,31 +1,6 @@
 # Getting started
 
-## How to Use
-
-The recommended way to install the SDK is through [Composer](http://getcomposer.org).
-
-```bash
-# Install Composer
-curl -sS https://getcomposer.org/installer | php
-```
-
-Next, run the Composer command to install the latest stable version of our SDK:
-
-```bash
-php composer.phar require tangocard/raas
-```
-
-After installing, you need to require Composer's autoloader:
-
-```php
-require 'vendor/autoload.php';
-```
-
-You can then later update the SDK using composer:
-
- ```bash
-composer.phar update
- ```
+With this RESTful API you can integrate a global reward or incentive program into your app or platform. If you have any questions or if you'd like to receive your own credentials, please contact us at devsupport@tangocard.com.
 
 ## How to Build
 
@@ -146,12 +121,12 @@ In order to setup authentication and initialization of the API client, you need 
 API client can be initialized as following.
 
 ```php
-// Configuration parameters and credentials
-$platformName = "QAPlatform2"; // RaaS v2 API Platform Name
-$platformKey = "apYPfT6HNONpDRUj3CLGWYt7gvIHONpDRUYPfT6Hj"; // RaaS v2 API Platform Key
+$platformName = 'QAPlatform2'; // RaaS v2 API Platform Name
+$platformKey = 'apYPfT6HNONpDRUj3CLGWYt7gvIHONpDRUYPfT6Hj'; // RaaS v2 API Platform Key
 
 $client = new RaasLib\RaasClient($platformName, $platformKey);
 ```
+
 
 # Class Reference
 
@@ -411,10 +386,10 @@ $collect['startDate'] = $startDate;
 $endDate = date("D M d, Y G:i");
 $collect['endDate'] = $endDate;
 
-$elementsPerBlock = 241;
+$elementsPerBlock = 135;
 $collect['elementsPerBlock'] = $elementsPerBlock;
 
-$page = 241;
+$page = 135;
 $collect['page'] = $page;
 
 
@@ -478,7 +453,7 @@ function getExchangeRates()
 
 ```php
 
-$exchangeRates->getExchangeRates();
+$result = $exchangeRates->getExchangeRates();
 
 ```
 

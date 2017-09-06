@@ -16,42 +16,42 @@ use RaasLib\APIHelper;
 class RaasGenericException extends APIException
 {
     /**
- * Request timestamp
+     * Request timestamp
      * @required
      * @var string $timestamp public property
      */
     public $timestamp;
 
     /**
- * Request ID
+     * Request ID
      * @required
      * @var string $requestId public property
      */
     public $requestId;
 
     /**
- * Request Path
+     * Request Path
      * @required
      * @var string $path public property
      */
     public $path;
 
     /**
- * HTTP Code
+     * HTTP Code
      * @required
      * @var integer $httpCode public property
      */
     public $httpCode;
 
     /**
- * HTTP Phrase
+     * HTTP Phrase
      * @required
      * @var string $httpPhrase public property
      */
     public $httpPhrase;
 
     /**
- * Error Message
+     * Error Message
      * @var string|null $message public property
      */
     public $message;

@@ -16,44 +16,44 @@ use RaasLib\APIHelper;
 class RaasClientException extends APIException
 {
     /**
- * Request timestamp
+     * Request timestamp
      * @required
      * @var string $timestamp public property
      */
     public $timestamp;
 
     /**
- * Request ID
+     * Request ID
      * @required
      * @var string $requestId public property
      */
     public $requestId;
 
     /**
- * Request Path
+     * Request Path
      * @required
      * @var string $path public property
      */
     public $path;
 
     /**
- * HTTP Code
+     * HTTP Code
      * @required
      * @var integer $httpCode public property
      */
     public $httpCode;
 
     /**
- * HTTP Phrase
+     * HTTP Phrase
      * @required
      * @var string $httpPhrase public property
      */
     public $httpPhrase;
 
     /**
- * An array of errors
+     * An array of errors
      * @required
-     * @var \RaasLib\Models\RaasClientErrorModel[] $errors public property
+     * @var RaasClientErrorModel[] $errors public property
      */
     public $errors;
 

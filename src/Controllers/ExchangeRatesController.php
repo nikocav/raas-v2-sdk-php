@@ -45,7 +45,7 @@ class ExchangeRatesController extends BaseController
     /**
      * Retrieve current exchange rates
      *
-     * @return void response from the API call
+     * @return mixed response from the API call
      * @throws APIException Thrown if API call fails
      */
     public function getExchangeRates()
@@ -62,7 +62,8 @@ class ExchangeRatesController extends BaseController
 
         //prepare headers
         $_headers = array (
-            'user-agent'    => 'TangoCardv2NGSDK'
+            'user-agent'    => 'TangoCardv2NGSDK',
+            'Accept'        => 'application/json'
         );
 
         //set HTTP basic auth parameters
@@ -87,5 +88,9 @@ class ExchangeRatesController extends BaseController
 
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
+
+        $mapper = $this->getJsonMapper();
+
+        return $mapper->mapClass($response->body, 'RaasLib\\Models\\ExchangeRateResponseModel');
     }
 }
