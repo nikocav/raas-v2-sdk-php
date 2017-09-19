@@ -78,4 +78,13 @@ class RaasClient
     {
         return Controllers\CustomersController::getInstance();
     }
+
+    /**
+     * Singleton access to Fund controller
+     * @return Controllers\FundController The *Singleton* instance
+     */
+    public function getFund()
+    {
+        return Controllers\FundController::getInstance();
+    }
 }
