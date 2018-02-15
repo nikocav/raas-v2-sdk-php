@@ -19,10 +19,12 @@ class RaasClient
      */
     public function __construct(
         $platformName = null,
-        $platformKey = null
+        $platformKey = null,
+        $environment = null
     ) {
         Configuration::$platformName = $platformName ? $platformName : Configuration::$platformName;
         Configuration::$platformKey = $platformKey ? $platformKey : Configuration::$platformKey;
+        Configuration::$environment = $environment ? $environment : Environments::PRODUCTION;
     }
  
     /**
