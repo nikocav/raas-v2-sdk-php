@@ -265,4 +265,58 @@ class FundController extends BaseController
 
         return $mapper->mapClass($response->body, 'RaasLib\\Models\\DepositModel');
     }
+
+    public function getFundDetails($depositId){
+        //check that all required arguments are provided
+        if (!isset($depositId)) {
+            throw new \InvalidArgumentException("One or more required arguments were NULL.");
+        }
+
+        //the base uri for api requests
+        $_queryBuilder = Configuration::getBaseUri();
+
+        //prepare query string for API call
+        $_queryBuilder = $_queryBuilder.'/creditCardDeposits/{depositId}';
+
+        //process optional query parameters
+        $_queryBuilder = APIHelper::appendUrlWithTemplateParameters($_queryBuilder, array (
+            'depositId' => $depositId,
+        ));
+
+        //validate and preprocess url
+        $_queryUrl = APIHelper::cleanUrl($_queryBuilder);
+
+        //prepare headers
+        $_headers = array (
+            'user-agent'     => 'TangoCardv2NGSDK',
+            'Accept'         => 'application/json'
+        );
+
+        //set HTTP basic auth parameters
+        Request::auth(Configuration::$platformName, Configuration::$platformKey);
+
+        //call on-before Http callback
+        $_httpRequest = new HttpRequest(HttpMethod::GET, $_headers, $_queryUrl);
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnBeforeRequest($_httpRequest);
+        }
+
+        //and invoke the API call request to fetch the response
+        $response = Request::get($_queryUrl, $_headers);
+
+        $_httpResponse = new HttpResponse($response->code, $response->headers, $response->raw_body);
+        $_httpContext = new HttpContext($_httpRequest, $_httpResponse);
+
+        //call on-after Http callback
+        if ($this->getHttpCallBack() != null) {
+            $this->getHttpCallBack()->callOnAfterRequest($_httpContext);
+        }
+
+        //handle errors defined at the API level
+        $this->validateResponse($_httpResponse, $_httpContext);
+
+        $mapper = $this->getJsonMapper();
+
+        return $mapper->mapClass($response->body, 'RaasLib\\Models\\DepositModel');
+    }
 }

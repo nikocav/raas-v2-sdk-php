@@ -24,7 +24,10 @@ class RaasClient
     ) {
         Configuration::$platformName = $platformName ? $platformName : Configuration::$platformName;
         Configuration::$platformKey = $platformKey ? $platformKey : Configuration::$platformKey;
-        Configuration::$environment = $environment ? $environment : Environments::PRODUCTION;
+        if($environment == null || $environment == 'production')
+            Configuration::$environment = Environments::PRODUCTION;
+        if($environment == 'sandbox')
+            Configuration::$environment = Environments::SANDBOX;
     }
  
     /**
